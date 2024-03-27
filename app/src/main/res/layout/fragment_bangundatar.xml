@@ -6,12 +6,14 @@
 
     android:background="#181B20">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:orientation="vertical">
+        android:background="@drawable/rounded_corner"
+        android:orientation="vertical"
+        >
+
 
         <TextView
             android:id="@+id/heading"
@@ -22,27 +24,27 @@
             android:text="Bangun Datar"
             android:layout_marginStart="15dp"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="40sp" />
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:paddingBottom="10dp"/>
 
 
-
-
-        <GridLayout
-            android:id="@+id/gridLayout2d"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:rowCount="3"
-            android:columnCount="2"
-            android:padding="15dp"
-            android:layout_marginBottom="5dp">
+            android:background="@color/white">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv2dMenu"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </LinearLayout>
 
-        </GridLayout>
+
+
+
+
 
     </LinearLayout>
 

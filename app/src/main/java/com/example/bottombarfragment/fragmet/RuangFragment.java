@@ -20,7 +20,7 @@ import com.example.bottombarfragment.calculator2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BangunDatarFragment extends Fragment implements MyAdapter.ItemClickListener {
+public class RuangFragment extends Fragment implements MyAdapter.ItemClickListener {
 
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
@@ -28,48 +28,47 @@ public class BangunDatarFragment extends Fragment implements MyAdapter.ItemClick
     List<Item> listData;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_bangundatar, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_bangunruang, container, false);
 
-        recyclerView = view.findViewById(R.id.rv2dMenu);
+        recyclerView = view.findViewById(R.id.rv3dMenu);
         listData = new ArrayList<>();
 
-        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/shape_square.png", "Persegi"));
-        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/shape_circle.png", "Lingkaran"));
-        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/shape_triangle.png", "Segitiga"));
-        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/shape_rectangle.png", "Persegi panjang"));
+        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/object_cube.png", "Kubus"));
+        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/object_cylinder.png", "Tabung"));
+        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/object_ball.png", "Bola"));
+        listData.add(new Item("https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/256x256/plain/object_cone.png", "Kerucut"));
 
-
-
-        linearLayoutManager = new LinearLayoutManager(requireContext());
+        linearLayoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         myAdapter = new MyAdapter(requireContext(), listData);
+
         myAdapter.setItemClickListener(this);
         recyclerView.setAdapter(myAdapter);
+        myAdapter.notifyDataSetChanged();
 
         return view;
     }
 
     @Override
     public void onItemClick(View view, Item item) {
-
+        // Handle the item click here
         Toast.makeText(requireContext(), "You clicked " + item.getName(), Toast.LENGTH_SHORT).show();
         Intent intent;
         switch (item.getName()) {
-            case "Persegi":
+            case "Kubus":
                 intent = new Intent(requireContext(), calculator1.class);
                 break;
-            case "Lingkaran":
-                intent = new Intent(requireContext(), calculator1.class);
-                break;
-            case "Segitiga":
-                intent =new Intent(requireContext(), calculator2.class);
+            case "Tabung":
+                intent = new Intent(requireContext(), calculator2.class);
                 intent.putExtra("shape2", item.getName());
                 startActivity(intent);
                 break;
-            case "Persegi panjang":
+            case "Bola":
+                intent =new Intent(requireContext(), calculator1.class);
+                break;
+            case "Kerucut":
                 intent = new Intent(requireContext(), calculator2.class);
                 intent.putExtra("shape2", item.getName());
                 startActivity(intent);
@@ -83,7 +82,6 @@ public class BangunDatarFragment extends Fragment implements MyAdapter.ItemClick
         // Optionally, you can pass additional data to the activity using intent.putExtra()
         intent.putExtra("shape1", item.getName());
         startActivity(intent);
-
-
     }
 }
+

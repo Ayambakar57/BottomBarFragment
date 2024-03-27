@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.bottombarfragment.fragmet.BangunDatarFragment;
-import com.example.bottombarfragment.fragmet.NotificationFragment;
+import com.example.bottombarfragment.fragmet.RuangFragment;
 import com.example.bottombarfragment.fragmet.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     BangunDatarFragment homeFragment = new BangunDatarFragment();
-    NotificationFragment notificationFragment = new NotificationFragment();
+    RuangFragment notificationFragment = new RuangFragment();
     ProfileFragment settingsFragment = new ProfileFragment();
 
     @Override

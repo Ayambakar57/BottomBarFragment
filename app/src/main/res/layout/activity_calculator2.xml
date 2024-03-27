@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <LinearLayout
+        android:id="@+id/centerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/calculator_2parameter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculator 2"
+            android:textSize="50dp"/>
+
+        <ImageView
+            android:id="@+id/imgCalculator1"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/shapes"
+            android:background="@drawable/rounded_corner"/>
+
+        <EditText
+            android:id="@+id/edittext2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:hint="Input Number here"
+            android:padding="12dp"/>
+
+        <EditText
+            android:id="@+id/edittext3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:hint="Input Number here"
+            android:inputType="number"
+            android:padding="12dp"/>
+
+        <Button
+            android:id="@+id/confirm2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"/>
+
+        <TextView
+            android:id="@+id/Hasil_kakulator2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hasil"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_corner"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/black"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -29,7 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HolderData> {
     }
 
     public interface ItemClickListener {
-        void onItemClick(View view, int position);
+        void onItemClick(View view, Item item);
     }
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -45,11 +45,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HolderData> {
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.HolderData holder, int position) {
+        holder.txtName.setText(listData.get(position).getName());
+
         Glide.with(holder.itemView.getContext())
                 .load(listData.get(position).getImg()) // Use the resource ID
                 .error(R.drawable.profile)
                 .placeholder(R.drawable.profile)
                 .into(holder.img);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (itemClickListener != null) {
+                    // Pass the Item object associated with the clicked view to the onItemClick method
+                    itemClickListener.onItemClick(view, listData.get(holder.getAdapterPosition()));
+                }
+            }
+        });
+
     }
 
     @Override
@@ -58,6 +71,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HolderData> {
     }
 
     public class HolderData extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        TextView txtName;
 
         ImageView img;
 
@@ -70,13 +85,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.HolderData> {
 
 
             img = itemView.findViewById(R.id.imageView);
+            txtName = itemView.findViewById(R.id.tvName);
 
             itemView.setOnClickListener(this);
         }
 
+        @Override
         public void onClick(View view) {
             if (itemClickListener != null) {
-                itemClickListener.onItemClick(view, getAdapterPosition());
+                // Correctly fetch the Item object associated with the clicked view's position
+                Item item = listData.get(getAdapterPosition());
+                itemClickListener.onItemClick(view, item);
             }
         }
     }

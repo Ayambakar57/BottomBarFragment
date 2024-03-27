@@ -26,6 +26,8 @@
             android:layout_marginTop="20dp"
             android:src="@mipmap/ic_launcher"
             android:contentDescription="profile_picture"
+            android:background="@drawable/rounded_corner"
+            android:clipToOutline="true"
             android:scaleType="centerCrop"/>
 
         <TextView
